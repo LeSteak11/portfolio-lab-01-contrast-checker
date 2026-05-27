@@ -183,6 +183,31 @@
                 return (lighter + 0.05) / (darker + 0.05);
             }
 
+            const fgPicker = document.getElementById('fg-picker');
+            const bgPicker = document.getElementById('bg-picker');
+            const fgHex = document.getElementById('fg-hex');
+            const bgHex = document.getElementById('bg-hex');
+
+            fgPicker.addEventListener('input', () => {
+                fgHex.value = fgPicker.value;
+            });
+
+            bgPicker.addEventListener('input', () => {
+                bgHex.value = bgPicker.value;
+            });
+
+            fgHex.addEventListener('input', () => {
+                if (fgHex.value.length === 7) {
+                    fgPicker.value = fgHex.value;
+                }
+            });
+
+            bgHex.addEventListener('input', () => {
+                if (bgHex.value.length === 7) {
+                    bgPicker.value = bgHex.value;
+                }
+            });
+
         </script>
 
     </body>
