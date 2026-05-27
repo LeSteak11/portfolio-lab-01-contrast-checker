@@ -190,21 +190,25 @@
 
             fgPicker.addEventListener('input', () => {
                 fgHex.value = fgPicker.value;
+                updateUI();
             });
 
             bgPicker.addEventListener('input', () => {
                 bgHex.value = bgPicker.value;
+                updateUI();
             });
 
             fgHex.addEventListener('input', () => {
                 if (fgHex.value.length === 7) {
                     fgPicker.value = fgHex.value;
+                    updateUI();
                 }
             });
 
             bgHex.addEventListener('input', () => {
                 if (bgHex.value.length === 7) {
                     bgPicker.value = bgHex.value;
+                    updateUI();
                 }
             });
 
@@ -216,6 +220,8 @@
 
                 const ratio = getContrastRatio(fg, bg);
                 document.getElementById('ratio').textContent = `Contrast Ratio: ${ratio.toFixed(2)}:1`;
+                updateBadges(ratio);
+                updatePreview(fg, bg);
             }
 
             function updateBadges(ratio) {
