@@ -166,6 +166,15 @@
                     b: parseInt(hex.substring(4, 6), 16)
                 };
             }
+
+            function getRelativeLuminance(rgb) {
+                const vals = [rgb.r, rgb.g, rgb.b].map(v => {
+                    v = v / 255;
+                    return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+                });
+                return 0.2126 * vals[0] + 0.7152 * vals[1] + 0.0722 * vals[2];
+            }
+
         </script>
 
     </body>
