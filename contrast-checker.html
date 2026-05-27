@@ -32,6 +32,47 @@
                 font-weight: 700;
                 letter-spacing: -0.02em;
             }
+
+            #inputs {
+                display: flex;
+                gap: 16px;
+            }
+
+            .color-group {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .color-group label {
+                font-size: 13px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                color: #666;
+            }
+
+            .color-group input[type="text"] {
+                width: 100%;
+                padding: 10px 12px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                font-size: 15px;
+                font-family: monospace;
+                background: #fff;
+                color: #111;
+            }
+
+            .color-group input[type="color"] {
+                width: 100%;
+                height: 48px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                cursor: pointer;
+                padding: 4px;
+                background: #fff;
+            }
         </style>
     </head>
     <body>
