@@ -208,6 +208,16 @@
                 }
             });
 
+            function updateUI() {
+                const fg = fgHex.value;
+                const bg = bgHex.value;
+
+                if (fg.length !== 7 || bg.length !== 7) return;
+
+                const ratio = getContrastRatio(fg, bg);
+                document.getElementById('ratio').textContent = `Contrast Ratio: ${ratio.toFixed(2)}:1`;
+            }
+
         </script>
 
     </body>
