@@ -218,6 +218,18 @@
                 document.getElementById('ratio').textContent = `Contrast Ratio: ${ratio.toFixed(2)}:1`;
             }
 
+            function updateBadges(ratio) {
+                document.getElementById('aa-normal').textContent = 'AA Normal: ' + (ratio >= 4.5 ? 'Pass' : 'Fail');
+                document.getElementById('aa-large').textContent = 'AA Large: ' + (ratio >= 3 ? 'Pass' : 'Fail');
+                document.getElementById('aaa-normal').textContent = 'AAA Normal: ' + (ratio >= 7 ? 'Pass' : 'Fail');
+                document.getElementById('aaa-large').textContent = 'AAA Large: ' + (ratio >= 4.5 ? 'Pass' : 'Fail');
+            }
+
+            function updatePreview(fg, bg) {
+                document.getElementById('preview-text').style.color = fg;
+                document.getElementById('preview').style.backgroundColor = bg;
+            }
+
         </script>
 
     </body>
