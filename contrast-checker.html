@@ -175,6 +175,14 @@
                 return 0.2126 * vals[0] + 0.7152 * vals[1] + 0.0722 * vals[2];
             }
 
+            function getContrastRatio(hex1, hex2) {
+                const L1 = getRelativeLuminance(hexToRgb(hex1));
+                const L2 = getRelativeLuminance(hexToRgb(hex2));
+                const lighter = Math.max(L1, L2);
+                const darker = Math.min(L1, L2);
+                return (lighter + 0.05) / (darker + 0.05);
+            }
+
         </script>
 
     </body>
