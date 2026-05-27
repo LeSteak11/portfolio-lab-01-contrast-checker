@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contrast Checker</title>
+    </head>
+    <body>
+
+        <div id="app">
+
+            <h1>WCAG Contrast Checker</h1>
+
+            <div id="inputs">
+
+                <div class="color-group">
+                    <label>Foreground</label>
+                    <input type="text" id="fg-hex" placeholder="#000000">
+                    <input type="color" id="fg-picker">
+                </div>
+
+                <div class="color-group">
+                    <label>Background</label>
+                    <input type="text" id="bg-hex" placeholder="#FFFFFF">
+                    <input type="color" id="bg-picker">
+                </div>
+
+            </div>
+
+            <div id="results">
+                <p id="ratio">Contrast Ratio: —</p>
+
+                <div id="badges">
+                    <span id="aa-normal">AA Normal: —</span>
+                    <span id="aa-large">AA Large: —</span>
+                    <span id="aaa-normal">AAA Normal: —</span>
+                    <span id="aaa-large">AAA Large: —</span>
+                </div>
+
+            </div>
+
+            <div id="preview">
+                <p id="preview-text">The quick brown fox jumps over the lazy dog</p>
+            </div>
+
+        </div>
+
+
+        
+
+    </body>
+</html>
