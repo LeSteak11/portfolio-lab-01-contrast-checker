@@ -101,6 +101,18 @@
                 color: #666;
             }
 
+            #badges span.pass {
+                background: #dcfce7;
+                color: #16a34a;
+                border: 1px solid #bbf7d0;
+            }
+
+            #badges span.fail {
+                background: #fee2e2;
+                color: #dc2626;
+                border: 1px solid #fecaca;
+            }
+
             #preview {
                 border-radius: 12px;
                 padding: 48px 32px;
@@ -250,10 +262,17 @@
             }
 
             function updateBadges(ratio) {
-                document.getElementById('aa-normal').textContent = 'AA Normal: ' + (ratio >= 4.5 ? 'Pass' : 'Fail');
-                document.getElementById('aa-large').textContent = 'AA Large: ' + (ratio >= 3 ? 'Pass' : 'Fail');
-                document.getElementById('aaa-normal').textContent = 'AAA Normal: ' + (ratio >= 7 ? 'Pass' : 'Fail');
-                document.getElementById('aaa-large').textContent = 'AAA Large: ' + (ratio >= 4.5 ? 'Pass' : 'Fail');
+                const checks = [
+                    { id: 'aa-normal', pass: ratio >= 4.5, label: 'AA Normal' },
+                    { id: 'aa-large', pass: ratio >= 3, label: 'AA Large' },
+                    { id: 'aaa-normal', pass: ratio >= 7, label: 'AAA Normal' },
+                    { id: 'aaa-large', pass: ratio >= 4.5, label: 'AAA Large' }
+                ];
+                checks.forEach(({ id, pass, label }) => {
+                    const el = document.getElementById(id);
+                    el.textContent = label + ': ' + (pass ? 'Pass' : 'Fail');
+                    el.className = pass ? 'pass' : 'fail';
+                });
             }
 
             function updatePreview(fg, bg) {
