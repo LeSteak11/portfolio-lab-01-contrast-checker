@@ -199,13 +199,25 @@
             });
 
             fgHex.addEventListener('input', () => {
-                if (fgHex.value.length === 7) {
+                const val = fgHex.value;
+                if (/^#[0-9a-fA-F]{3}$/.test(val)) {
+                    const expanded = '#' + val[1]+val[1] + val[2]+val[2] + val[3]+val[3];
+                    fgPicker.value = expanded;
+                    updateUI();
+                }
+                if (val.length === 7) {
                     fgPicker.value = fgHex.value;
                     updateUI();
                 }
             });
 
             bgHex.addEventListener('input', () => {
+                const val = bgHex.value;
+                if (/^#[0-9a-fA-F]{3}$/.test(val)) {
+                    const expanded = '#' + val[1]+val[1] + val[2]+val[2] + val[3]+val[3];
+                    bgPicker.value = expanded;
+                    updateUI();
+                }
                 if (bgHex.value.length === 7) {
                     bgPicker.value = bgHex.value;
                     updateUI();
