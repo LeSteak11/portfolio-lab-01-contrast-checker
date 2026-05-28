@@ -140,7 +140,7 @@
                 font-size: 13px;
                 font-weight: 500;
                 cursor: pointer;
-                color: 111;
+                color: #111;
             }
 
             #copy-btn:hover {
@@ -153,7 +153,7 @@
         <div id="app">
 
             <h1>WCAG Contrast Checker</h1>
-            <button id="copy-btn" onclick="copyColors()">Copy Colors</button>
+            <button id="#copy-btn" onclick="copyColors()">Copy Colors</button>
 
             <div id="inputs">
 
@@ -290,6 +290,15 @@
                 document.getElementById('ratio').textContent = `Contrast Ratio: ${ratio.toFixed(2)}:1`;
                 updateBadges(ratio);
                 updatePreview(fg, bg);
+
+                const ratioEl = document.getElementById('ratio');
+                if (ratio >=7) {
+                    ratioEl.style.color = '#16a34a';
+                } else if (ratio >= 4.5) {
+                    ratioEl.style.color = '#ca8a04';
+                } else {
+                    ratioEl.style.color = '#dc2626';
+                }
             }
 
             function updateBadges(ratio) {
