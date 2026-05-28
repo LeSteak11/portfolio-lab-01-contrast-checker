@@ -216,7 +216,20 @@
                 const fg = fgHex.value;
                 const bg = bgHex.value;
 
-                if (fg.length !== 7 || bg.length !== 7) return;
+                if (fg.length !== 7 || bg.length !== 7) {
+                    document.getElementById('ratio').textContent = 'Contrast Ratio: —';
+                    document.getElementById('aa-normal').textContent = 'AA Normal: —';
+                    document.getElementById('aa-large').textContent = 'AA Large: —';
+                    document.getElementById('aaa-normal').textContent = 'AAA Normal: —';
+                    document.getElementById('aaa-large').textContent = 'AAA Large: —';
+                    return;
+                }
+
+                const validHex = /^#([0-9a-fA-F]{6})$/.test(fg) && /^#([0-9a-fA-F]{6})$/.test(bg);
+                if (!validHex) {
+                    document.getElementById('ratio').textContent = 'Invalid hex value';
+                    return;
+                }
 
                 const ratio = getContrastRatio(fg, bg);
                 document.getElementById('ratio').textContent = `Contrast Ratio: ${ratio.toFixed(2)}:1`;
