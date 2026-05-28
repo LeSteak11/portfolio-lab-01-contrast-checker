@@ -130,6 +130,22 @@
                 color: #999;
                 margin-top: 4px;
             }
+
+            #copy-btn {
+                align-self: flex-start;
+                padding: 8px 16px;
+                border-radius: 7px;
+                border: 1px solid #ddd;
+                background: #fff;
+                font-size: 13px;
+                font-weight: 500;
+                cursor: pointer;
+                color: 111;
+            }
+
+            #copy-btn:hover {
+                border-color: #111;
+            }
         </style>
     </head>
     <body>
@@ -137,6 +153,7 @@
         <div id="app">
 
             <h1>WCAG Contrast Checker</h1>
+            <button id="copy-btn" onclick="copyColors()">Copy Colors</button>
 
             <div id="inputs">
 
@@ -242,6 +259,13 @@
                     updateUI();
                 }
             });
+
+            function copyColors() {
+                const text = `FG: ${fgHex.value}  BG: ${bgHex.value}`;
+                navigator.clipboard.writeText(text);
+                document.getElementById('copy-btn').textContent = 'Copied!';
+                setTimeout(() => document.getElementById('copy-btn').textContent = 'Copy Colors', 2000);
+            }
 
             function updateUI() {
                 const fg = fgHex.value;
